@@ -104,3 +104,56 @@ DROP TABLE IF EXISTS tasks;
 
 -- 20. Delete students table
 DROP TABLE IF EXISTS students;
+
+
+
+create database users;
+use users;
+CREATE TABLE user(
+id INT,
+Name VARCHAR(10),
+email VARCHAR(20),
+cgpa DECIMAL(2,1)
+);
+
+INSERT INTO user VALUES (1,"AHWIN","ashwin@gmail.com",7.8);
+SELECT * FROM user;
+
+
+USE  users;
+CREATE TABLE orders(
+id INT,
+status varchar(20) DEFAULT 'PENDING',
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO orders(id,status)
+VALUES(2,'COMPLETED');
+SELECT * FROM orders
+
+
+use users;
+CREATE TABLE students(
+id INT,
+COURSE_ID INT,
+PRIMARY KEY (id, course_id)
+);
+
+INSERT INTO students (id, COURSE_ID) values (1,1);
+INSERT INTO students (id, COURSE_ID) values (1,3);
+INSERT INTO students (id, COURSE_ID) values (1,NULL);
+SELECT * FROM students;
+
+
+
+use users;
+CREATE TABLE students2(
+id INT unique,
+PRIMARY KEY (id)
+);
+
+INSERT INTO students (id) values (1);
+SELECT * FROM students;
+
+
+
+
